@@ -18,15 +18,13 @@ if (isset($_POST['submit']))
     $name = escapeshellarg($_POST[name]);
 
     // build the linux command that you want executed; use full path for safety
-    $command = '/home/MYUSERNAME/public_html/project_cpp/hello.exe ' . $name;
+    $command = '/home/ls008/public_html/DBProject/hello.exe ' . $name;
 
     // remove dangerous characters from command to protect web server
     $command = escapeshellcmd($command);
  
     // echo then run the command
-	echo "command: $command <br>";
+    echo "command: $command <br>";
     system($command);           
 }
 ?>
-
-
