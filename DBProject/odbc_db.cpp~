@@ -148,8 +148,8 @@ void odbc_db::initDatabase()
       insert("Student", "'567465278', 'Roger Williams', 'Electrical Engineering'");
       insert("Student", "'981238278', 'Macy Hotchkiss', 'Geology'");
       
-      insert("Course", "'ELEG', '2004', 'Introduction to Circuits', 4");
-      insert("Course", "'GEOL', '2004', 'Introduction to Geology', 4");
+      insert("Course", "'ELEG', '2004', 'Introduction to Circuits', 4);
+      insert("Course", "'GEOL', '2004', 'Introduction to Geology', 4);
       
       insert("Enrollment", "'567465278', 'ELEG', '2004', 'Spring'");
       insert("Enrollment", "'981238278', 'GEOL', '2004', 'Summer'");
