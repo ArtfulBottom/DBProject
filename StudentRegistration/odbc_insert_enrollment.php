@@ -3,10 +3,10 @@
 <body>
 <h1>Enter information about a student to add to the database:</h1>
 
-<form action="odbc_insert_student.php" method="post">
+<form action="odbc_insert_enrollment.php" method="post">
     Student ID: <input type="text" name="studentId"><br>
-    Name: <input type="text" name="name"><br>
-    Major: <input type="text" name="major"><br><br>
+    Department Code: <input type="text" name="name"><br>
+    Course number: <input type="text" name="major"><br><br>
     <input name="Submit" type="submit">
 </form>
 <a href="../StudentRegistration">Back to home page.</a>
@@ -29,8 +29,7 @@ if (isset($_POST['Submit']))
     $command = escapeshellcmd($command);
  
     // run odbc_insert_student.exe
-    system($command);           
+    system($command);    
+    echo 'Student successfully added.';       
 }
 ?>
-
-

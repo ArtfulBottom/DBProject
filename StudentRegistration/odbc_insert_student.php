@@ -24,13 +24,13 @@ if (isset($_POST['Submit']))
     $major = escapeshellarg($_POST[major]);
 
     $command = '/home/ls008/public_html/StudentRegistration/odbc_insert_student.exe ' . $studentId . ' ' . $name . ' ' . $major;
-    echo '<p>' . 'command: ' . $command . '<p>';
 
     // remove dangerous characters from command to protect web server
     $command = escapeshellcmd($command);
  
     // run odbc_insert_student.exe
-    system($command);           
+    system($command);    
+    echo 'Student successfully added.';       
 }
 ?>
 

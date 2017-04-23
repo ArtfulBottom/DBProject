@@ -11,11 +11,6 @@ int main(int argc, char *argv[])
 {
    odbc_db myDB;
    myDB.Connect();
- 
-   // For debugging purposes:  Show the database before insert
-   string builder = "";
-   string query1 = "SELECT * from Student;";
-   builder.append("<br><br><br> Student table before:" + myDB.query(query1) +"<br>");
 
    // Read command line arguments
    // First arg, arg[0] is the name of the program
@@ -27,10 +22,6 @@ int main(int argc, char *argv[])
    // Insert the new restaurant
    string input = "'" + studentId + "','" + name + "','" + major + "'";               
    myDB.insert("Student", input);    // insert new restaurant
- 
-   //For debugging purposes: Show the database after insert
-   builder.append("<br><br><br> Table Student after:" + myDB.query(query1));
-   cout << builder; 
        
    myDB.disConnect();//disconect Database
 
