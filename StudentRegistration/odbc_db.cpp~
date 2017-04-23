@@ -40,8 +40,10 @@ string odbc_db::query(string q)
    string builder = ""; 
    try 
    {
+   	  builder.append("<table>");
       resultSet = statement->executeQuery(q);
       builder.append(print(resultSet));
+      builder.append("</table>");
    }
    catch (sql::SQLException e) 
    {
@@ -126,10 +128,9 @@ string odbc_db::printRecords(sql::ResultSet *resultSet, int numColumns)
 }
 
 // Insert into any table, any values from data passed in as String parameters
-void odbc_db::insert(string table, string values) 
+void odbc_db::insert(string table, string values) throw sql::SQLExcpetion
 {
-string query = "INSERT into " + table + " values (" + values + ")";
-
+   string query = "INSERT into " + table + " values (" + values + ")";
    statement->executeUpdate(query);
 }
 

@@ -29,8 +29,7 @@ if (isset($_POST['Submit']))
     $command = escapeshellcmd($command);
  
     // run odbc_insert_student.exe
-    system($command);    
-    echo 'Student successfully added.';       
+    system($command);          
 }
 ?>
 

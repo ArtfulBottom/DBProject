@@ -128,10 +128,9 @@ string odbc_db::printRecords(sql::ResultSet *resultSet, int numColumns)
 }
 
 // Insert into any table, any values from data passed in as String parameters
-void odbc_db::insert(string table, string values) 
+void odbc_db::insert(string table, string values)
 {
-string query = "INSERT into " + table + " values (" + values + ")";
-
+   string query = "INSERT into " + table + " values (" + values + ")";
    statement->executeUpdate(query);
 }
 
