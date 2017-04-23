@@ -50,21 +50,12 @@ void odbc_db::disConnect()
 string odbc_db::query(string q) 
 {
    string builder = ""; 
-   try 
-   {
-   	  builder.append("<table>");
-      resultSet = statement->executeQuery(q);
-      builder.append(print(resultSet));
-      builder.append("</table>");
-   }
-   catch (sql::SQLException e) 
-   {
-      cout << "ERROR: SQLException in " << __FILE__;
-      cout << " (" << __func__<< ") on line " << __LINE__ << endl;
-      cout << "ERROR: " << e.what();
-      cout << " (MySQL error code: " << e.getErrorCode();
-      cout << ", SQLState: " << e.getSQLState() << ")" << endl;
-   }
+
+   builder.append("<table>");
+   resultSet = statement->executeQuery(q);
+   builder.append(print(resultSet));
+   builder.append("</table>");
+   
    return builder;
 }
 
