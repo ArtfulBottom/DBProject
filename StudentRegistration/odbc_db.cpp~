@@ -3,9 +3,9 @@
 using namespace std;
 
 odbc_db::odbc_db() {
-	string Username = "ls008";
-    string mysqlPassword = "ahri3muS";
-    string SchemaName = "ls008";
+	Username = "ls008";
+    mysqlPassword = "ahri3muS";
+    SchemaName = "ls008";
     
     resultSet = NULL;
     metaData = NULL;
@@ -20,7 +20,7 @@ void odbc_db::Connect()
    try
    {
       driver = get_driver_instance();
-      connection = driver->connect("tcp://127.0.0.1:3306", "ls008", "ahri3muS");
+      connection = driver->connect("tcp://127.0.0.1:3306", Username, mysqlPassword);
       connection->setSchema(SchemaName);
       statement = connection->createStatement();
    }
@@ -50,21 +50,12 @@ void odbc_db::disConnect()
 string odbc_db::query(string q) 
 {
    string builder = ""; 
-   try 
-   {
-   	  builder.append("<table>");
-      resultSet = statement->executeQuery(q);
-      builder.append(print(resultSet));
-      builder.append("</table>");
-   }
-   catch (sql::SQLException e) 
-   {
-      cout << "ERROR: SQLException in " << __FILE__;
-      cout << " (" << __func__<< ") on line " << __LINE__ << endl;
-      cout << "ERROR: " << e.what();
-      cout << " (MySQL error code: " << e.getErrorCode();
-      cout << ", SQLState: " << e.getSQLState() << ")" << endl;
-   }
+
+   builder.append("<table>");
+   resultSet = statement->executeQuery(q);
+   builder.append(print(resultSet));
+   builder.append("</table><br>");
+   
    return builder;
 }
 

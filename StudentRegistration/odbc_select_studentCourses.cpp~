@@ -5,9 +5,24 @@ using namespace std;
 int main(int argc, char *argv[]) {
 	odbc_db myDB;
 	myDB.Connect();
+
+	string q = "";
+	if( argc == 1) {	//No studentid specified, return list of studentids
+		q = "SELECT StudentId FROM Student;";
+	} else {	//Return student course information from specified studentId
+		string studentId = argv[1];
+		
+		q  = "SELECT Course.DeptCode, Course.CourseNum, Course.Title, Course.CreditHours ";
+		q += "FROM Student NATURAL JOIN Enrollment NATURAL JOIN Course ";
+		q += "WHERE Student.StudentId = " + studentId + " ";
+		q += "ORDER BY Course.DeptCode, Course.CourseNum";
+	}
 	
-	string q = "SELECT * FROM Student GROUP BY StudentId;";
-	cout << myDB.query(q);
+	try {
+		cout << myDB.query(q) + "<br>";
+	} catch (sql::SQLException &e) {
+		cout << "<font color='red'>ERROR: Please enter a valid Student ID.</font>";
+	}
 
 	myDB.disConnect();
 	

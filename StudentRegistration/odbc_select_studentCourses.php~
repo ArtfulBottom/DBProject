@@ -18,22 +18,37 @@ tr:nth-child(even) {
 <body>
 <h1>Student Course Information:</h1>
 
+<?php
+	$command = '/home/ls008/public_html/StudentRegistration/odbc_select_studentCourses.exe';
+		
+	// remove dangerous characters from command to protect web server
+	$command = escapeshellcmd($command);
+
+	// run odbc_select_students.exe
+	system($command);         
+?>
+
+<br>
 <form action="odbc_select_studentCourses.php" method="post">
-    Student ID: <input type="text" name="studentId" required><br>
+    Student ID: <input type="text" name="studentId" required><br><br>
     <input name="Submit" type="submit">
 </form>
 
 <?php
-    $command = '/home/ls008/public_html/StudentRegistration/odbc_select_students.exe';
+	if (isset($_POST['studentId'])) {
+    	$command = '/home/ls008/public_html/StudentRegistration/odbc_select_studentCourses.exe '
+    	   		   . $_POST['studentId']; 
 
-    // remove dangerous characters from command to protect web server
-    $command = escapeshellcmd($command);
+		// remove dangerous characters from command to protect web server
+		$command = escapeshellcmd($command);
  
-    // run odbc_select_students.exe
-    system($command);           
+		// run odbc_select_students.exe
+		system($command); 
+		echo '<br>';   
+	}       
 ?>
 
-<br><a href="../StudentRegistration">Back to home page.</a>
+<a href="../StudentRegistration">Back to home page.</a>
 
 </body>
 </html>
