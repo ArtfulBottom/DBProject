@@ -25,6 +25,7 @@ class odbc_db
       sql::Statement *statement;
 
    public:
+   	  odbc_db();
       // Connect to the database
       void Connect();
     
