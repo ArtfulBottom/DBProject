@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
       myDB.insert("Course", input);    // insert new restaurant
    } catch (sql::SQLException &e) {
       cout << "ERROR: Unable to insert enrollment.\n"
-           << "Please make sure the Student ID, Deptartment Code, and Course Number are valid."
+           << "Please make sure the Student ID, Deptartment Code, and Course Number are valid.";
    }
        
    myDB.disConnect();//disconect Database

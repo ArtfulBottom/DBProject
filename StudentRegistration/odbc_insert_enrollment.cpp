@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
    // Insert the new course
    string input = "'" + studentId + "','" + deptCode + "','" + courseNum + "'";   
    try {            
-      myDB.insert("Course", input);    // insert new restaurant
+      myDB.insert("Enrollment", input);    // insert new enrollment
    } catch (sql::SQLException &e) {
       cout << "ERROR: Unable to insert enrollment.\n"
            << "Please make sure the Student ID, Deptartment Code, and Course Number are valid.";
