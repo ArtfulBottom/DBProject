@@ -37,7 +37,7 @@ if (isset($_POST['Submit'])) {
     $deptCode = $_POST[deptCode];
     echo '<p>' . $deptCode . '<p>';
 
-    $command = '/home/pwm001/public_html/DBProject/StudentRegistration/odbc_select_courses.exe ' . $deptCode;
+    $command = '/home/ls008/public_html/StudentRegistration/odbc_select_courses.exe ' . $deptCode;
     echo '<p>' . 'command: ' . $command . '<p>';
 
     // remove dangerous characters from command to protect web server
