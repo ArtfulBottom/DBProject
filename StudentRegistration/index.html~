@@ -1,0 +1,14 @@
+<html>
+<head><title>Student Registration</title></head>
+<body>
+<h1>Welcome to the Student Registration System!</h1>
+
+1)<a href="odbc_insert_student.php">Add a student to the Student table.</a><br>
+2)<a href="odbc_insert_course.php">Add a course to the Course table.</a><br>
+3)<a href="odbc_insert_enrollment.php">Add an application to the Enrollment table.</a><br>
+4)<a href="odbc_select_students.php">View all students.</a><br>
+5)<a href="odbc_select_courses.php">View all courses for each department.</a><br>
+6)<a href="odbc_select_studentCourses.php">View all courses for a given student</a>.<br>
+
+</body>
+</html>
