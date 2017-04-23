@@ -11,6 +11,7 @@ int main(int argc, char *argv[]) {
 		q = "SELECT DISTINCT DeptCode FROM Course;";
 	} else {	//Return courses from specified department
 		string dept = argv[1];
+		cout << "dept=" << dept << endl;
 		q = "SELECT * FROM Course WHERE DeptCode = " + dept + ";";
 	}
 
