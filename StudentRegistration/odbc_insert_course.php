@@ -19,7 +19,7 @@
 <?php
 if (isset($_POST['Submit'])) 
 {
-	if( !is_numeric($_POST[hours]) ) {
+	if(!is_numeric($_POST[hours])) {
 		die("Hours:" . $_POST[hours] . " Hours must be a number!");
 	}
 
@@ -31,7 +31,6 @@ if (isset($_POST['Submit']))
 
     $command = '/home/ls008/public_html/StudentRegistration/odbc_insert_course.exe ' 
     		   . $deptCode . ' ' . $courseNum . ' ' . $title . ' ' . $hours;
-    echo '<p>' . 'command: ' . $command . '<p>';
 
     // remove dangerous characters from command to protect web server
     $command = escapeshellcmd($command);

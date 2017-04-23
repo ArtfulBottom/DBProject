@@ -6,7 +6,9 @@ int main(int argc, char *argv[]) {
 	odbc_db myDB;
 	myDB.Connect();
 	
-	string q = "SELECT * FROM Student ORDER BY StudentId;";
+	string studentId = argv[1];
+	
+	string q = "SELECT * FROM Student WHERE Student.StudentId = " + studentId + " GROUP BY ;
 	cout << myDB.query(q);
 
 	myDB.disConnect();

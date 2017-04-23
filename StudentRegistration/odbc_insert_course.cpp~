@@ -11,11 +11,6 @@ int main(int argc, char *argv[])
 {
    odbc_db myDB;
    myDB.Connect();
- 
-   // For debugging purposes:  Show the database before insert
-   string builder = "";
-   string query1 = "SELECT * from Course;";
-   builder.append("<br><br><br> Course table before:" + myDB.query(query1) +"<br>");
 
    // Read command line arguments
    // First arg, arg[0] is the name of the program
@@ -26,12 +21,13 @@ int main(int argc, char *argv[])
    string creditHours = argv[4];
  
    // Insert the new course
-   string input = "'" + deptCode + "','" + courseNum + "','" + title + "','" + creditHours + "'";               
-   myDB.insert("Course", input);    // insert new restaurant
- 
-   //For debugging purposes: Show the database after insert
-   builder.append("<br><br><br> Course table after:" + myDB.query(query1));
-   cout << builder; 
+   try {
+   	  string input = "'" + deptCode + "','" + courseNum + "','" + title + "','" + creditHours + "'";               
+   	  myDB.insert("Course", input);    // insert new course.
+   	  cout << "Course data successfully entered.";
+   } catch (sql::SQLException &e) {
+   	  cout << "<font color='red'>ERROR: Department code and number already exist.</font>";
+   }
        
    myDB.disConnect();//disconect Database
 

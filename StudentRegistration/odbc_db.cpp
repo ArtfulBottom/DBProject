@@ -2,16 +2,26 @@
 #include <string>
 using namespace std;
 
+odbc_db::odbc_db() {
+	Username = "ls008";
+    mysqlPassword = "ahri3muS";
+    SchemaName = "ls008";
+    
+    resultSet = NULL;
+    metaData = NULL;
+    driver = NULL;
+    connection = NULL;
+    statement = NULL;
+}
+
 // Connect to the database
 void odbc_db::Connect()
-{
-   string name = "ls008";
-   string password = "ahri3muS";
+{	
    try
    {
       driver = get_driver_instance();
-      connection = driver->connect("tcp://127.0.0.1:3306", name, password);
-      connection->setSchema(name);
+      connection = driver->connect("tcp://127.0.0.1:3306", Username, mysqlPassword);
+      connection->setSchema(SchemaName);
       statement = connection->createStatement();
    }
   catch (sql::SQLException &e) 
@@ -27,9 +37,11 @@ void odbc_db::Connect()
 // Disconnect from the database
 void odbc_db::disConnect()  
 {
-   delete resultSet;
+   if (resultSet != NULL) {
+  	 delete resultSet;
+   }
    delete statement;
-   connection -> close();
+   connection->close();
    delete connection;
 }
 

@@ -20,8 +20,13 @@ int main(int argc, char *argv[])
    string major = argv[3];
  
    // Insert the new restaurant
-   string input = "'" + studentId + "','" + name + "','" + major + "'";               
-   myDB.insert("Student", input);    // insert new restaurant
+   try {
+       string input = "'" + studentId + "','" + name + "','" + major + "'";               
+       myDB.insert("Student", input);    // insert new student
+       cout << "Student data successfully entered.";
+   } catch (sql::SQLException &e) {
+   	   cout << "<font color='red'>ERROR: Student ID already exists.</font>";
+   }
        
    myDB.disConnect();//disconect Database
 

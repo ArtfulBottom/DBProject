@@ -5,15 +5,12 @@
 
 <form action="odbc_insert_enrollment.php" method="post">
     Student ID: <input type="text" name="studentId" required><br>
-    Department Code: <input type="text" name="deptCode" required><br>
+    Department code: <input type="text" name="deptCode" required><br>
     Course number: <input type="text" name="courseNum" required><br><br>
     <input name="Submit" type="submit">
 </form>
 <a href="../StudentRegistration">Back to home page.</a>
 <br><br>
-
-</body>
-</html>
 
 <?php
 if (isset($_POST['Submit'])) 
@@ -30,6 +27,9 @@ if (isset($_POST['Submit']))
     $command = escapeshellcmd($command);
  
     // run odbc_insert_student.exe
-    system($command);       
+    system($command);    
 }
 ?>
+
+</body>
+</html>

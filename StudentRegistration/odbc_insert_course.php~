@@ -19,14 +19,18 @@
 <?php
 if (isset($_POST['Submit'])) 
 {
+	if( !is_numeric($_POST[hours]) ) {
+		die("Hours:" . $_POST[hours] . " Hours must be a number!");
+	}
+
     // replace ' ' with '\ ' in the strings so they are treated as single command line args
     $deptCode = escapeshellarg($_POST[deptCode]);
     $courseNum = escapeshellarg($_POST[courseNum]);
     $title = escapeshellarg($_POST[title]);
     $hours = escapeshellarg($_POST[hours]);
 
-    $command = '/home/ls008/public_html/StudentRegistration/odbc_insert_course.exe ' . $deptCode . ' ' . $courseNum . ' ' . $title . ' ' . $hours;
-    echo '<p>' . 'command: ' . $command . '<p>';
+    $command = '/home/ls008/public_html/StudentRegistration/odbc_insert_course.exe ' 
+    		   . $deptCode . ' ' . $courseNum . ' ' . $title . ' ' . $hours;
 
     // remove dangerous characters from command to protect web server
     $command = escapeshellcmd($command);
@@ -35,4 +39,5 @@ if (isset($_POST['Submit']))
     system($command);           
 }
 ?>
+
 
