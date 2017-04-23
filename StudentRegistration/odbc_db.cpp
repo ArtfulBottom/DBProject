@@ -50,7 +50,7 @@ void odbc_db::disConnect()
 string odbc_db::query(string q) 
 {
    string builder = ""; 
-
+   
    builder.append("<table>");
    resultSet = statement->executeQuery(q);
    builder.append(print(resultSet));
@@ -64,21 +64,17 @@ string odbc_db::query(string q)
 string odbc_db::print (sql::ResultSet *resultSet) 
 {
    string builder = ""; 
-   try
-   {
-      if (resultSet -> rowsCount() != 0)
-      {
-         sql::ResultSetMetaData *metaData = resultSet->getMetaData();
-         int numColumns = metaData->getColumnCount();
-         builder.append(printHeader(metaData, numColumns));
-         builder.append(printRecords(resultSet, numColumns));
-      }
-      else
-         throw runtime_error("ResultSetMetaData FAILURE - no records in the result set");
+   
+   if (resultSet -> rowsCount() != 0) {
+      sql::ResultSetMetaData *metaData = resultSet->getMetaData();
+      int numColumns = metaData->getColumnCount();
+      builder.append(printHeader(metaData, numColumns));
+      builder.append(printRecords(resultSet, numColumns));
    }
-   catch (std::runtime_error &e) 
-   {
+   else {
+     throw sql::SQLException();
    }
+
    return builder;
  }
 
