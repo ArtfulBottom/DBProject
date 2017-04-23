@@ -19,6 +19,10 @@
 <?php
 if (isset($_POST['Submit'])) 
 {
+	if( !is_numeric($_POST[hours]) ) {
+		die("Hours:" . $_POST[hours] . " Hours must be a number!");
+	}
+
     // replace ' ' with '\ ' in the strings so they are treated as single command line args
     $deptCode = escapeshellarg($_POST[deptCode]);
     $courseNum = escapeshellarg($_POST[courseNum]);
@@ -35,4 +39,5 @@ if (isset($_POST['Submit']))
     system($command);           
 }
 ?>
+
 
