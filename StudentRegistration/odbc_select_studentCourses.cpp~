@@ -8,7 +8,7 @@ int main(int argc, char *argv[]) {
 
 	string q = "";
 	if( argc == 1) {	//No studentid specified, return list of studentids
-		q = "SELECT StudentId FROM Student ORDER BY StudentId;";
+		q = "SELECT StudentId FROM Student ORDER BY StudentId";
 	} else {	//Return student course information from specified studentId
 		string studentId = argv[1];
 		
