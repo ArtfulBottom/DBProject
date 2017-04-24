@@ -16,7 +16,7 @@ tr:nth-child(even) {
 }
 </style>
 <body>
-<h1>All Student Information:</h1>
+<h1>Department Information:</h1>
 <?php
     $command = '/home/ls008/public_html/StudentRegistration/odbc_select_courses.exe';
 
@@ -28,7 +28,7 @@ tr:nth-child(even) {
 ?>
 
 <form action="odbc_select_courses.php" method="post">
-    Department code: <input type="text" name="deptCode" required><br>
+    Enter a Department code: <input type="text" name="deptCode" required><br>
     <input name="Submit" type="submit">
 </form>
 
