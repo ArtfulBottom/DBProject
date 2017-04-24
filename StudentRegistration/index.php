@@ -7,7 +7,7 @@
 2) <a href="odbc_insert_course.php">Add a course to the Course table.</a><br>
 3) <a href="odbc_insert_enrollment.php">Add an application to the Enrollment table.</a><br>
 4) <a href="odbc_select_students.php">View all students.</a><br>
-5) <a href="odbc_select_courses.php">View all courses for a given department.</a><br>
+5) <a href="odbc_select_deptCourses.php">View all courses for a given department.</a><br>
 6) <a href="odbc_select_studentCourses.php">View all courses for a given student.</a><br>
 7) <a href="index.php?reinitialize=true">Reinitialize database.</a>
 

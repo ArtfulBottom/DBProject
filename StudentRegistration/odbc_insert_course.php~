@@ -17,9 +17,8 @@
 </html>
 
 <?php
-if (isset($_POST['Submit'])) 
-{
-	if( !is_numeric($_POST[hours]) ) {
+if (isset($_POST['Submit'])) {
+	if(!is_numeric($_POST[hours])) {
 		die("Hours:" . $_POST[hours] . " Hours must be a number!");
 	}
 

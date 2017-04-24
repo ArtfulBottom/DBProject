@@ -72,7 +72,7 @@ string odbc_db::print (sql::ResultSet *resultSet)
       builder.append(printRecords(resultSet, numColumns));
    }
    else {
-     throw new sql::SQLException("No results in result set.");
+     throw sql::SQLException();
    }
 
    return builder;

@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
    string name = argv[2];
    string major = argv[3];
  
-   // Insert the new restaurant
+   // Insert the new student.
    try {
        string input = "'" + studentId + "','" + name + "','" + major + "'";               
        myDB.insert("Student", input);    // insert new student

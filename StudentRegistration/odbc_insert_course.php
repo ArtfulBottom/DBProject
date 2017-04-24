@@ -17,8 +17,7 @@
 </html>
 
 <?php
-if (isset($_POST['Submit'])) 
-{
+if (isset($_POST['Submit'])) {
 	if(!is_numeric($_POST[hours])) {
 		die("Hours:" . $_POST[hours] . " Hours must be a number!");
 	}
@@ -35,7 +34,7 @@ if (isset($_POST['Submit']))
     // remove dangerous characters from command to protect web server
     $command = escapeshellcmd($command);
  
-    // run odbc_insert_student.exe
+    // run odbc_insert_course.exe
     system($command);           
 }
 ?>

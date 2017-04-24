@@ -17,7 +17,7 @@
 
 <?php
 	if (isset($_POST['Submit'])) {
-		if (!isValidId()) {
+		if (!isValidId($_POST['studentId'])) {
 			die('<br><font color="red">ERROR: The Student ID must contain only numbers.</font>');
 		}
 		
@@ -36,8 +36,7 @@
 		system($command);     
 	}
 
-	function isValidId() {
-		$str = $_POST['studentId'];
+	function isValidId($str) {
 		$len = strlen($str);
 		
 		for ($i = 0; $i < $len; $i++) {

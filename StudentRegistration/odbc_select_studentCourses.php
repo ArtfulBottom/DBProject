@@ -16,7 +16,7 @@ tr:nth-child(even) {
 }
 </style>
 <body>
-<h1>View Student Course Information:</h1>
+<h1>Enter a Student ID to obtain their enrolled course information:</h1>
 
 <?php
 	$command = '/home/ls008/public_html/StudentRegistration/odbc_select_studentCourses.exe';
@@ -24,7 +24,7 @@ tr:nth-child(even) {
 	// remove dangerous characters from command to protect web server
 	$command = escapeshellcmd($command);
 
-	// run odbc_select_students.exe
+	// run odbc_select_studentCourses.exe
 	system($command);         
 ?>
 
@@ -33,6 +33,9 @@ tr:nth-child(even) {
     Enter a Student ID: <input type="text" name="studentId" required><br><br>
     <input name="Submit" type="submit">
 </form>
+
+<a href="../StudentRegistration">Back to home page.</a>
+<br><br>
 
 <?php
 	if (isset($_POST['studentId'])) {
@@ -46,8 +49,6 @@ tr:nth-child(even) {
 		system($command);    
 	}       
 ?>
-
-<br><a href="../StudentRegistration">Back to home page.</a>
 
 </body>
 </html>
