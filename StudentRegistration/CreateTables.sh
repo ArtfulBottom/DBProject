@@ -11,7 +11,7 @@ PRIMARY KEY (StudentId)
 
 CREATE TABLE Course (
 DeptCode char(4),
-CourseNum char(4),
+CourseNum char(5),
 Title char(50),
 CreditHours int,
 PRIMARY KEY (DeptCode, CourseNum)
@@ -20,7 +20,7 @@ PRIMARY KEY (DeptCode, CourseNum)
 CREATE TABLE Enrollment (
 StudentId char(9),
 DeptCode char(4),
-CourseNum char(4),
+CourseNum char(5),
 PRIMARY KEY (StudentId, DeptCode, CourseNum),
 FOREIGN KEY (StudentId) REFERENCES Student(StudentId)
 	ON DELETE CASCADE,

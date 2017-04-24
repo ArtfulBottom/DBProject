@@ -129,14 +129,24 @@ void odbc_db::initDatabase(){
 		statement->executeUpdate("DELETE from Student");
 
 		// Add records to the tables
-		insert("Student", "'567465278', 'Roger Williams', 'Electrical Engineering'");
-		insert("Student", "'981238278', 'Macy Hotchkiss', 'Geology'");
+		insert("Student", "'012345678', 'Roger Williams', 'Electrical Engineering'");
+		insert("Student", "'123768900', 'Macy Henderson', 'Geology'");
+		insert("Student", "'010896544', 'Gregory Patterson', 'Economics'");
+		insert("Student", "'878656109', 'Nicholas Adams', 'Economics'");
+		insert("Student", "'131989665', 'Olivia Lipinski', 'Chemistry'");
 
 		insert("Course", "'ELEG', '2004', 'Introduction to Circuits', 4");
 		insert("Course", "'GEOL', '2004', 'Introduction to Geology', 4");
+		insert("Course", "'ECON', '2013', 'Principles of Microeconomics', 3");
+		insert("Course", "'CHEM', '3613', 'Organic Chemistry II', 3");
+		insert("Course", "'CSCE', '5363L', 'Integrated Circuit Design Laboratory II', 3");
 
-		insert("Enrollment", "'567465278', 'ELEG', '2004'");
-		insert("Enrollment", "'981238278', 'GEOL', '2004'");
+		insert("Enrollment", "'012345678', 'ELEG', '2004'");
+		insert("Enrollment", "'123768900', 'GEOL', '2004'");
+		insert("Enrollment", "'010896544', 'ECON', '2013'");
+		insert("Enrollment", "'878656109', 'ECON', '2013'");
+		insert("Enrollment", "'131989665', 'CHEM', '3613'");
+		
 	} catch (sql::SQLException &e) {
 		cout << "ERROR: SQLException in " << __FILE__;
 		cout << " (" << __func__<< ") on line " << __LINE__ << endl;

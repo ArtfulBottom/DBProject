@@ -8,10 +8,11 @@ int main(int argc, char *argv[]) {
 
 	string q = "";
 	if( argc == 1) {	//No department specified, return list of departments
-		q = "SELECT DISTINCT DeptCode FROM Course;";
+		q = "SELECT DISTINCT DeptCode FROM Course ORDER BY DeptCode";
 	} else {	//Return courses from specified department
 		string dept = argv[1];
-		q = "SELECT * FROM Course WHERE DeptCode = '" + dept + "';";
+		q  = "SELECT * FROM Course WHERE DeptCode = '" + dept + "' ";
+		q += "ORDER BY DeptCode, CourseNum";
 	}
 	
 	try {

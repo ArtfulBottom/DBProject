@@ -11,9 +11,9 @@ PRIMARY KEY (StudentId)
 
 CREATE TABLE Course (
 DeptCode char(4),
-CourseNum char(4),
-Title char(50) NOT NULL,
-CreditHours int NOT NULL,
+CourseNum char(5),
+Title char(50),
+CreditHours int,
 PRIMARY KEY (DeptCode, CourseNum)
 );
 
