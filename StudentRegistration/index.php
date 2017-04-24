@@ -1,6 +1,6 @@
 <html>
 <head><title>Student Registration</title></head>
-<body>
+<body style="background-color:#99ccff;">
 <h1>Welcome to the Student Registration System!</h1>
 
 1) <a href="odbc_insert_student.php">Add a student to the Student table.</a><br>

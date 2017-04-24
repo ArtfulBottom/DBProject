@@ -11,11 +11,19 @@ td, th {
 	padding: 8px;
 }
 
-tr:nth-child(even) {
+th {
+	background-color: #ffffff;
+}
+
+tr:nth-child(odd) {
 	background-color: #dddddd;
 }
+
+tr:nth-child(even) {
+	background-color: #ffffff;
+}
 </style>
-<body>
+<body style="background-color:#99ccff;">
 <h1>Enter a Department code to obtain its course offerings:</h1>
 <?php
 	$config = include('config.php');

@@ -11,11 +11,19 @@ td, th {
 	padding: 8px;
 }
 
-tr:nth-child(even) {
+th {
+	background-color: #ffffff;
+}
+
+tr:nth-child(odd) {
 	background-color: #dddddd;
 }
+
+tr:nth-child(even) {
+	background-color: #ffffff;
+}
 </style>
-<body>
+<body style="background-color:#99ccff;">
 <h1>All Student Information:</h1>
 <?php
 	$config = include('config.php');

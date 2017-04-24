@@ -1,6 +1,6 @@
 <html>
 <head><title>Insert Student</title></head>
-<body>
+<body style="background-color:#99ccff;">
 <h1>Enter information about a student to add to the database:</h1>
 
 <form action="odbc_insert_student.php" method="post">

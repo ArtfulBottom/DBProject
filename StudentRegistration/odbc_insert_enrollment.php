@@ -1,6 +1,6 @@
 <html>
 <head><title>Insert Student Enrollment</title></head>
-<body>
+<body style="background-color:#99ccff;">
 <h1>Enter information about a student enrollment to add to the database:</h1>
 
 <form action="odbc_insert_enrollment.php" method="post">
