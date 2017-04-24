@@ -91,7 +91,8 @@ An enrollment consists of pairing a student with a distinct course.
 Students are identified by StudentId, while courses have a composite key.
 As a result, all included attributes compose the primary key, and all attributes are foreign
 keys to the other tables (accordingly, no attributes may be null).
-Each foreign key constraint cascades deletion, so that if a course is removed all the associated students are unenrolled, and so that if a student is removed,
+Each foreign key constraint cascades deletion, so that if a course is
+removed all the associated students are unenrolled, and so that if a student is removed,
 that student is no longer enrolled in any courses.
 
 \section*{Error checking}
@@ -105,23 +106,30 @@ The error testing for this project was extensive and consists of the following:
 	\end{itemize}
 \item Adding a course page
 	\begin{itemize}
-	\item The DeptCode, CourseNum, Title, or CreditHours cannot be empty (validated through HTML form).
+	\item The DeptCode, CourseNum, Title, or CreditHours cannot be empty
+		(validated through HTML form).
 	\item The CreditHours must be a positive integer (validated through HTML form).
 	\end{itemize}
 \item Adding an enrollment application page
 	\begin{itemize}
-	\item The StudentId, DeptCode, and CourseNum cannot be empty (validated through HTML form).
-	\item Since each of the fields references a student and course in the respective tables, if any of the fields references non-existing data, an exception is thrown on the server side, generating a user-friendly error.  
+	\item The StudentId, DeptCode, and CourseNum cannot be empty
+		(validated through HTML form).
+	\item Since each of the fields references a student and course in the respective
+		tables, if any of the fields references non-existing data, an exception is
+		thrown on the server side, generating a user-friendly error.  
 	\end{itemize}
 \item Viewing courses for a given department page
 	\begin{itemize}
 	\item The DeptCode cannot be empty (validated through HTML form).
-	\item If a non-existing DeptCode is entered, an exception is thrown on the server side, generating a user-friendly error.
+	\item If a non-existing DeptCode is entered, an exception is thrown on the
+		server side, generating a user-friendly error.
 	\end{itemize}
 \item Viewing courses for a given StudentId page
 	\begin{itemize}
 	\item The StudentId cannot be empty (validated through HTML form).
-	\item If a non-existing StudentId is entered, an exception is thrown on the server side, generating a user-friendly error.
+	\item If a non-existing StudentId is entered, or one which is not enrolled in any
+		classes, an exception is thrown on the server side, generating a
+		user-friendly error.
 	\end{itemize}
 \end{enumerate}
 
