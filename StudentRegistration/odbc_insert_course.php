@@ -28,8 +28,9 @@ if (isset($_POST['Submit'])) {
     $title = escapeshellarg($_POST[title]);
     $hours = escapeshellarg($_POST[hours]);
 
-    $command = '/home/ls008/public_html/StudentRegistration/odbc_insert_course.exe ' 
-    		   . $deptCode . ' ' . $courseNum . ' ' . $title . ' ' . $hours;
+	$config = include('config.php');
+    $command = $config['path'] . 'odbc_insert_course.exe ' . 
+    		   $deptCode . ' ' . $courseNum . ' ' . $title . ' ' . $hours;
 
     // remove dangerous characters from command to protect web server
     $command = escapeshellcmd($command);

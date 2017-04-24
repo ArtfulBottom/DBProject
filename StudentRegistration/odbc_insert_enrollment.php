@@ -19,8 +19,9 @@ if (isset($_POST['Submit'])) {
     $deptCode = escapeshellarg($_POST[deptCode]);
     $courseNum = escapeshellarg($_POST[courseNum]);
 
-    $command = '/home/ls008/public_html/StudentRegistration/odbc_insert_enrollment.exe ' 
-    		   . $studentId . ' ' . $deptCode . ' ' . $courseNum;
+	$config = include('config.php');
+    $command = $config['path'] . 'odbc_insert_enrollment.exe ' . 
+    		   $studentId . ' ' . $deptCode . ' ' . $courseNum;
 
     // remove dangerous characters from command to protect web server
     $command = escapeshellcmd($command);

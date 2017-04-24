@@ -18,7 +18,8 @@ tr:nth-child(even) {
 <body>
 <h1>All Student Information:</h1>
 <?php
-    $command = '/home/ls008/public_html/StudentRegistration/odbc_select_students.exe';
+	$config = include('config.php');
+    $command = $config['path'] . 'odbc_select_students.exe';
 
     // remove dangerous characters from command to protect web server
     $command = escapeshellcmd($command);

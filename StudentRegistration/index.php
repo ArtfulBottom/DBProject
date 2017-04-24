@@ -13,7 +13,8 @@
 
 <?php 
 	if (isset($_GET['reinitialize'])) {
-		$command = '/home/ls008/public_html/StudentRegistration/odbc_reinitialize.exe';
+	    $configs = include('config.php');
+		$command = $configs['path'] . 'odbc_reinitialize.exe';
 
     	// remove dangerous characters from command to protect web server
     	$command = escapeshellcmd($command);

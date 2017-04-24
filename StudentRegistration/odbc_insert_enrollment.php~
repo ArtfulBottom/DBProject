@@ -1,7 +1,7 @@
 <html>
-<head><title>Insert Student</title></head>
+<head><title>Insert Student Enrollment</title></head>
 <body>
-<h1>Enter information about an enrollment to add to the database:</h1>
+<h1>Enter information about a student enrollment to add to the database:</h1>
 
 <form action="odbc_insert_enrollment.php" method="post">
     Student ID: <input type="text" name="studentId" required><br>

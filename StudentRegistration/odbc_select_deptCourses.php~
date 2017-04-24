@@ -18,7 +18,8 @@ tr:nth-child(even) {
 <body>
 <h1>Enter a Department code to obtain its course offerings:</h1>
 <?php
-    $command = '/home/ls008/public_html/StudentRegistration/odbc_select_deptCourses.exe';
+	$config = include('config.php');
+    $command = $config['path'] . 'odbc_select_deptCourses.exe';
 
     // remove dangerous characters from command to protect web server
     $command = escapeshellcmd($command);
@@ -28,7 +29,7 @@ tr:nth-child(even) {
 ?>
 
 <br>
-<form action="odbc_select_courses.php" method="post">
+<form action="odbc_select_deptCourses.php" method="post">
     Enter a Department code: <input type="text" name="deptCode" required><br><br>
     <input name="Submit" type="submit">
 </form>

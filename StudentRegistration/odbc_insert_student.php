@@ -26,8 +26,9 @@
 		$name = escapeshellarg($_POST[name]);
 		$major = escapeshellarg($_POST[major]);
 
-		$command = '/home/ls008/public_html/StudentRegistration/odbc_insert_student.exe ' 
-				   . $studentId . ' ' . $name . ' ' . $major;
+		$config = include('config.php');
+		$command = $config['path'] . 'odbc_insert_student.exe ' . 
+				   $studentId . ' ' . $name . ' ' . $major;
 
 		// remove dangerous characters from command to protect web server
 		$command = escapeshellcmd($command);
