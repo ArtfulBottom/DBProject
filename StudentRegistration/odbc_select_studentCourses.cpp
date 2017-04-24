@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
 	try {
 		cout << myDB.query(q);
 	} catch (sql::SQLException &e) {
-		cout << "<font color='red'>ERROR: Please enter a valid Student ID.</font><br>";
+		cout << "<font color='red'>ERROR: No enrolled courses under the entered Student ID.<br></font>";
 	}
 
 	myDB.disConnect();

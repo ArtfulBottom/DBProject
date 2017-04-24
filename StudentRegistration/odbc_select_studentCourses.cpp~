@@ -6,22 +6,18 @@ int main(int argc, char *argv[]) {
 	odbc_db myDB;
 	myDB.Connect();
 
-	string q = "";
-	if( argc == 1) {	//No studentid specified, return list of studentids
-		q = "SELECT StudentId FROM Student ORDER BY StudentId";
-	} else {	//Return student course information from specified studentId
-		string studentId = argv[1];
-		
-		q  = "SELECT Course.DeptCode, Course.CourseNum, Course.Title, Course.CreditHours ";
-		q += "FROM Student NATURAL JOIN Enrollment NATURAL JOIN Course ";
-		q += "WHERE Student.StudentId = " + studentId + " ";
-		q += "ORDER BY Course.DeptCode, Course.CourseNum";
-	}
+	//Return student course information from specified studentId
+	string studentId = argv[1];
+	
+	string q = "SELECT Course.DeptCode, Course.CourseNum, Course.Title, Course.CreditHours ";
+	q += "FROM Student NATURAL JOIN Enrollment NATURAL JOIN Course ";
+	q += "WHERE Student.StudentId = " + studentId + " ";
+	q += "ORDER BY Course.DeptCode, Course.CourseNum";
 	
 	try {
 		cout << myDB.query(q);
 	} catch (sql::SQLException &e) {
-		cout << "<font color='red'>ERROR: Please enter a valid Student ID.</font><br>";
+		cout << "<font color='red'>ERROR: No enrolled courses with the entered Student ID.<br></font>";
 	}
 
 	myDB.disConnect();
