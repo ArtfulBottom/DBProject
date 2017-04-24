@@ -15,6 +15,9 @@
 \usepackage{needspace}
 \usepackage{hyperref}
 
+\usepackage{graphicx}
+\graphicspath{ {screenshots/} }
+
 \begin{document}             % End of preamble and beginning of text.
 
 \maketitle                   % Produces the title.
@@ -64,12 +67,15 @@ is not null before attempting to delete it.
 Without this check, segmentation faults could and would occur regularly when making a 
 connection without a valid query.
 
+Additionally, a function was added to reinitialize the tables from the web front.
+This returns the database to fresh tables with several sample tuples in each.
+
 \section*{Database tables}
 The database is designed with a generic university in mind.
 In many cases where characters are used, it is to accomodate schools which
 include letters in their naming system.
 Following the sample design, the database includes three tables:
-\subsection{Student}
+\subsection*{Student}
 The Student table includes a unique identifier StudentId,
 the student's name and the student's major.
 The StudentId field supports up to 9 characters, which supports UA's 9-digit standard
@@ -78,7 +84,7 @@ Because it is a unique identifier, it is the primary key.
 The StudentName field allows 50 characters, enough for most cases.
 Similarly, the Major field allows room for long degree names.
 None of the attributes may be null, and "Undeclared" can be used in place of NULL for Major.
-\subsection{Course}
+\subsection*{Course}
 The Course table identifies courses by the combination of Department code and course number.
 For example, ECON 3404 is distinct from ECON 2004 and HUMN 3404,
 which are a different course within the same department and a different course outside the
@@ -86,7 +92,7 @@ department which coincidentally uses the same course number, respectively.
 Course number allows up to 5 characters, supporting courses such as 3404L or other conventions.
 Title and Credit Hour fields can be null, for flexibility in adding courses for which
 not all details are finalized.
-\subsection{Enrollment}
+\subsection*{Enrollment}
 An enrollment consists of pairing a student with a distinct course.
 Students are identified by StudentId, while courses have a composite key.
 As a result, all included attributes compose the primary key, and all attributes are foreign
