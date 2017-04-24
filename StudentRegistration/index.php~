@@ -13,9 +13,9 @@
 
 <?php 
 	if (isset($_GET['reinitialize'])) {
-	    $configs = include('config.php');
-		$command = $configs['path'] . 'odbc_reinitialize.exe';
-
+	    $config = include('config.php');
+		$command = $config['path'] . 'odbc_reinitialize.exe';
+		echo $command;
     	// remove dangerous characters from command to protect web server
     	$command = escapeshellcmd($command);
  
